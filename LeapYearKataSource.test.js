@@ -23,3 +23,7 @@ test("should return false when given 100", () => {
 test("should return false when given 200", () => {
   expect(LeapYear.LeapYear(200)).toBe(false);
 });
+
+test("should return false when given 300", () => {
+  expect(LeapYear.LeapYear(300)).toBe(false);
+});
