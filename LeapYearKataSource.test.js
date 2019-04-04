@@ -35,3 +35,7 @@ test("should return true when given 400", () => {
 test("should return true when given 800", () => {
   expect(LeapYear.LeapYear(800)).toBe(true);
 });
+
+test("should return true when given 1200", () => {
+  expect(LeapYear.LeapYear(1200)).toBe(true);
+});
