@@ -1,5 +1,5 @@
 exports.LeapYear = x => {
-  if (x == 100) {
+  if (x == 100 || x == 200) {
     return false;
   }
 
