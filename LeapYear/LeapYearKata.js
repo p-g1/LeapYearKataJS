@@ -1,11 +1,17 @@
-exports.LeapYear = x => {
-  if (x % 100 == 0 && x % 400 != 0) {
+exports.isLeapYear = year => {
+  
+  Number.prototype.isDivisibleBy = divisor => {
+    return year % divisor == 0;
+  }
+  
+  if (year.isDivisibleBy(100) && !year.isDivisibleBy(400)) {
     return false;
   }
 
-  if (x % 4 == 0) {
+  if (year.isDivisibleBy(4)) {
     return true;
   }
 
   return false;
 };
+
