@@ -1,41 +1,21 @@
 const LeapYear = require("../LeapYearKata.js");
+require("jest-each");
 
-test("should return true when given 16", () => {
-  expect(LeapYear.isLeapYear(16)).toBe(true);
-});
-
-test("should return false when given 9", () => {
-  expect(LeapYear.isLeapYear(9)).toBe(false);
-});
-
-test("should return true when given 20", () => {
-  expect(LeapYear.isLeapYear(20)).toBe(true);
-});
-
-test("should return true when given 36", () => {
-  expect(LeapYear.isLeapYear(36)).toBe(true);
-});
-
-test("should return false when given 100", () => {
-  expect(LeapYear.isLeapYear(100)).toBe(false);
-});
-
-test("should return false when given 200", () => {
-  expect(LeapYear.isLeapYear(200)).toBe(false);
-});
-
-test("should return false when given 300", () => {
-  expect(LeapYear.isLeapYear(300)).toBe(false);
-});
-
-test("should return true when given 400", () => {
-  expect(LeapYear.isLeapYear(400)).toBe(true);
-});
-
-test("should return true when given 800", () => {
-  expect(LeapYear.isLeapYear(800)).toBe(true);
-});
-
-test("should return true when given 1200", () => {
-  expect(LeapYear.isLeapYear(1200)).toBe(true);
+describe("should return correct boolean when given an integer", () => {
+  test.each`
+    input   | expectedResult
+    ${16}   | ${true}
+    ${9}    | ${false}
+    ${20}   | ${true}
+    ${36}   | ${true}
+    ${100}  | ${false}
+    ${200}  | ${false}
+    ${300}  | ${false}
+    ${400}  | ${true}
+    ${800}  | ${true}
+    ${1200} | ${true}
+    
+  `("$input converts to $expectedResult", ({ input, expectedResult }) => {
+    expect(LeapYear.isLeapYear(input)).toBe(expectedResult);
+  });
 });
