@@ -3,13 +3,8 @@ exports.isLeapYear = year => {
     return year % divisor == 0;
   };
 
-  if (year.isDivisibleBy(100) && !year.isDivisibleBy(400)) {
-    return false;
-  }
-
-  if (year.isDivisibleBy(4)) {
-    return true;
-  }
-
-  return false;
+  return (
+    year.isDivisibleBy(4) &&
+    (!year.isDivisibleBy(100) || year.isDivisibleBy(400))
+  );
 };
